@@ -74,14 +74,33 @@ end
 
 
 
+def create_report
+  data = load_workout_data('workouts.csv')
+  ids_array = []
 
+  data.each do |date_data|
+
+    ids_array << date_data[0]
+
+  end
+
+  workouts = []
+
+  ids_array.each do |id_number|
+    workouts << Workout.new(id_number)
+  end
+
+  workouts
+end
 
 
 
 # def create_workout(id)
-workout_1 = Workout.new(pull_exercises(6))
+workout_1 = Workout.new(1)
 
-tp workout_1
+tp create_report, "id","date","type","duration","calories_burned"
+
+# tp workout_1, "id","date","type","duration","calories_burned"
 
 # p load_workout_data('workouts.csv').class
 

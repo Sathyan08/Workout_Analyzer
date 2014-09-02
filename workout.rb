@@ -1,7 +1,21 @@
 class Workout
   # YOUR CODE HERE
-  def initialize(exercise_array)
-    @exercise_array   = exercise_array
+  def initialize(id)
+    data = load_workout_data('workouts.csv')
+    @id = id
+    @exercise_array = []
+    @date = ''
+
+    data.each do |date_data|
+
+      if date_data[0] == @id
+        @exercise_array = date_data[1][:exercises]
+        @date           = date_data[1][:date]
+      end
+
+    end
+
+    # @exercise_array   = exercise_array
     @cardio_score     = 0
     @strength_score   = 0
     @other_score      = 0
@@ -74,8 +88,16 @@ class Workout
       @calories_burned.to_f
     end
 
-    def total_duration
+    def duration
       @total_duration
+    end
+
+    def date
+      @date
+    end
+
+    def id
+      @id
     end
 
 end
