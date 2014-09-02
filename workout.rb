@@ -15,14 +15,13 @@ class Workout
 
     end
 
-    # @exercise_array   = exercise_array
     @cardio_score     = 0
     @strength_score   = 0
     @other_score      = 0
     @total_duration   = 0
     @calories_burned  = 0
 
-    exercise_array.each do |exercise|
+    @exercise_array.each do |exercise|
       @total_duration += exercise[:duration_in_min]
 
       if exercise[:category] == "cardio"
@@ -60,25 +59,6 @@ class Workout
 
   end
 
-    def cardio_score
-      @cardio_score
-    end
-
-    def strength_score
-      @strength_score
-    end
-
-    def other_score
-      @other_score
-    end
-
-    def total_score
-      @total_score
-    end
-
-    def exercise_array
-      @exercise_array
-    end
 
     def type
       @type
